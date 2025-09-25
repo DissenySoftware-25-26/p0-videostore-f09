@@ -17,49 +17,33 @@ public class Customer {
         return name;
     }
 
+
+    private double getAmountFor(Rental rental) { return rental.getRentalPrice(); }
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         String result = "Rental Record for " + getName() + "\n";
 
         for (Rental rental : this.rentals) {
-            double thisAmount = 0;
+            // (b) thisAmount -> price
+            // (a)+(c) ara el càlcul és dins Rental
 
-            // determines the amount for each line
-            switch (rental.getMovie().getPriceCode()) {
-                case Movie.REGULAR:
-                    thisAmount += 2;
-                    if (rental.getDaysRented() > 2)
-                        thisAmount += (rental.getDaysRented() - 2) * 1.5;
-                    break;
-                case Movie.NEW_RELEASE:
-                    if (rental.getDaysRented() > 1)
-                        frequentRenterPoints++;
-
-                    thisAmount += rental.getDaysRented() * 3;
-                    break;
-                case Movie.CHILDRENS:
-                    thisAmount += 1.5;
-                    if (rental.getDaysRented() > 3)
-                        thisAmount += (rental.getDaysRented() - 3) * 1.5;
-                    break;
+            // punts de client freqüent (sense canvis de lògica)
+            frequentRenterPoints++;
+            if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE &&
+                    rental.getDaysRented() > 1) {
+                frequentRenterPoints++;
             }
 
-            frequentRenterPoints++;
-
-
-            result += "\t" + rental.getMovie().getTitle() + "\t"
-                    + String.valueOf(thisAmount) + "\n";
-            totalAmount += thisAmount;
-
+            result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(getAmountFor(rental)) + "\n";
+            totalAmount += getAmountFor(rental);
         }
 
         result += "You owed " + String.valueOf(totalAmount) + "\n";
         result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
-
-
         return result;
     }
+
 
 
 }
