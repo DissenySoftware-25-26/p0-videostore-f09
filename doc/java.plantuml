@@ -9,6 +9,10 @@ title __JAVA's Class Diagram__\n
         + addRental()
         + getName()
         + statement()
+        - getAmountFor()
+        - getName()
+        -getTotalCharge()
+        -getTotalFrequentRenterPoints()
     }
     class Movie {
         {static} + CHILDRENS : int
@@ -24,8 +28,10 @@ title __JAVA's Class Diagram__\n
     class Rental {
         - daysRented : int
         + Rental()
-        + getDaysRented()
         + getMovie()
+        + calculatePoints()
+        + getRentalPrice()
+        - getDaysRented()
     }
 
 

@@ -6,7 +6,16 @@ public class Rental
 		this.daysRented = daysRented;
 	}
 
-	public int getDaysRented () {
+    static int calculatePoints(Rental rental) {
+        int frequentRenterPoints =1;
+        if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE &&
+                rental.getDaysRented() > 1) {
+            frequentRenterPoints++;
+        }
+        return frequentRenterPoints;
+    }
+
+    public int getDaysRented () {
 		return daysRented;
 	}
 

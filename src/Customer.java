@@ -19,30 +19,31 @@ public class Customer {
 
 
     private double getAmountFor(Rental rental) { return rental.getRentalPrice(); }
-    public String statement() {
+
+    private double getTotalCharge() {
         double totalAmount = 0;
+        for (Rental rental : rentals) {
+            totalAmount += getAmountFor(rental);
+        } return totalAmount;
+    }
+
+
+    public String statement() {
         int frequentRenterPoints = 0;
         String result = "Rental Record for " + getName() + "\n";
 
         for (Rental rental : this.rentals) {
-            // (b) thisAmount -> price
-            // (a)+(c) ara el càlcul és dins Rental
 
-            // punts de client freqüent (sense canvis de lògica)
-            frequentRenterPoints++;
-            if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE &&
-                    rental.getDaysRented() > 1) {
-                frequentRenterPoints++;
-            }
+            frequentRenterPoints += Rental.calculatePoints(rental);
 
             result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(getAmountFor(rental)) + "\n";
-            totalAmount += getAmountFor(rental);
         }
 
-        result += "You owed " + String.valueOf(totalAmount) + "\n";
+        result += "You owed " + String.valueOf(getTotalCharge()) + "\n";
         result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
         return result;
     }
+
 
 
 

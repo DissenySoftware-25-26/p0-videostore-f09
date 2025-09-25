@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="de36694e-deee-493f-9886-3ad1830a6e3a" name="Changes" comment="First modification. Removal of redundant code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/java.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/doc/java.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/p0-videostore-f09/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/p0-videostore-f09/Customer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rental.java" afterDir="false" />
     </list>
@@ -78,6 +80,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="Rental" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.All in p0-videostore-f09">
     <configuration name="All in p0-videostore-f09" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="p0-videostore-f09" />
